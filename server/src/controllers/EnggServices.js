@@ -1,4 +1,4 @@
-const User = require('../models/User')
+const JEngg = require('../models/JEngg')
 const passwordhasher = require('password-hasher')
 
 module.exports = {
@@ -12,13 +12,14 @@ module.exports = {
 
             req.body.password = rfcHash
 
-            const user = await User.create(req.body);
+            const jengg = await JEngg.create(req.body);
 
-            res.send(user)
+            res.send(jengg)
 
         } catch (err) {
             res.status(400).send({
-                error: "Could not register user"
+                error: "Could not register JEngg",
+                err : err
             })
         }
     },
@@ -26,11 +27,11 @@ module.exports = {
         try {
             const {username,password} = req.body
 
-            const user = await User.findOne({
+            const jengg = await JEngg.findOne({
                 username: username
             })
 
-            if(!user) {
+            if(!jengg) {
                 return res.status(403).send({
                    error: "Invalid login info" 
                 })
@@ -40,14 +41,14 @@ module.exports = {
 
             const rfcHash = passwordhasher.formatRFC2307(hash)
 
-            if(rfcHash !== user.password) {
+            if(rfcHash !== jengg.password) {
                 return res.status(403).send({
                     error: "Invalid login info" 
                 })
             }
 
             res.send({
-                user: user
+                jengg: jengg
             })
         } catch (err) {
             res.status(400).send({

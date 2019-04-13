@@ -15,7 +15,7 @@ module.exports = {
             const user = await User.create(req.body);
 
             res.send({
-                message: "Registered successfully"
+                message: "Registered successfully!"
             })
 
         } catch (err) {

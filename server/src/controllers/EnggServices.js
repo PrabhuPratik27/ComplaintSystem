@@ -15,7 +15,7 @@ module.exports = {
             const jengg = await JEngg.create(req.body);
 
             res.send({
-                message: "Registered Successfully"
+                message: "Registered Successfully!!"
             })
 
         } catch (err) {

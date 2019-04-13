@@ -6,7 +6,9 @@
           <v-form ref="register" autocomplete="off" v-model="valid" lazy-validation>
             <v-text-field label="Username" v-model="username" class="mt-2 mb-2" :rules="nameRules"/>
             <v-text-field type="password" label="Password" v-model="password" class="mt-2 mb-2" :rules="passwordRules"/>
-            <button type="button" class='v-btn' dark color="success" @click="validate" :disabled="!valid" :class="{disabledButton: !valid, 'theme--dark': valid, success: valid}"><div class="v-btn__content">Login</div></button>            
+            <button type="button" class='v-btn' dark color="success" @click="validate1" :disabled="!valid" :class="{disabledButton: !valid, 'theme--dark': valid, success: valid}"><div class="v-btn__content">Login</div></button>            
+            <p class="mt-3 mb-3">Don't have an account? Register now!</p>
+            <button type="button" class='v-btn' dark color="success" @click="validate2" :disabled="!valid" :class="{disabledButton: !valid, 'theme--dark': valid, success: valid}"><div class="v-btn__content">Register</div></button>                        
           </v-form>
         </v-flex>
       </v-layout>
@@ -37,7 +39,7 @@ export default {
     }
   },
   methods: {
-    async register () {
+    async login () {
       try {
         const response = await AuthenticationService.Engglogin({
           username: this.username,
@@ -48,7 +50,24 @@ export default {
         console.log(e)
       }
     },
-    validate () {
+    async register () {
+      try {
+        const response = await AuthenticationService.Enggregister({
+          username: this.username,
+          password: this.password
+        })
+        console.log(response.data);
+      } catch(e) {
+        console.log(e)
+      }
+    },
+    validate1 () {
+      if (this.$refs.register.validate()) {
+        this.snackbar = true
+      }
+      this.login()
+    },
+    validate2 () {
       if (this.$refs.register.validate()) {
         this.snackbar = true
       }

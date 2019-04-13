@@ -15,7 +15,8 @@ module.exports = {
             const user = await User.create(req.body);
 
             res.send({
-                message: "Registered successfully!"
+                message: "Registered successfully!",
+                user: user
             })
 
         } catch (err) {
@@ -49,7 +50,8 @@ module.exports = {
             }
 
             res.send({
-                message : "Logged in Successfully!"
+                message : "Logged in Successfully!",
+                user: user
             })
         } catch (err) {
             res.status(400).send({

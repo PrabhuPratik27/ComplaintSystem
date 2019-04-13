@@ -14,12 +14,13 @@ module.exports = {
 
             const jengg = await JEngg.create(req.body);
 
-            res.send(jengg)
+            res.send({
+                message: "Registered Successfully"
+            })
 
         } catch (err) {
             res.status(400).send({
                 error: "Could not register JEngg",
-                err : err
             })
         }
     },
@@ -48,12 +49,18 @@ module.exports = {
             }
 
             res.send({
-                jengg: jengg
+                message: "Logged in successfully"
             })
         } catch (err) {
             res.status(400).send({
-                err: err
+                error: "Could not login at the moment" 
             })
         }
+    },
+    async get (req,res) {
+        const engg = await JEngg.find({});
+
+        res.send(engg);
+
     }
 }

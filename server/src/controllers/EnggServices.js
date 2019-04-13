@@ -49,7 +49,7 @@ module.exports = {
             }
 
             res.send({
-                message: "Logged in successfully"
+                message: "Logged in successfully!!"
             })
         } catch (err) {
             res.status(400).send({

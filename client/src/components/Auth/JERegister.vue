@@ -1,12 +1,12 @@
 <template>
   <div>
-    <panel title="Login">
+    <panel title="Register">
       <v-layout justify-center>
         <v-flex xs-8>
           <v-form ref="register" autocomplete="off" v-model="valid" lazy-validation>
             <v-text-field label="Username" v-model="username" class="mt-2 mb-2" :rules="nameRules"/>
             <v-text-field type="password" label="Password" v-model="password" class="mt-2 mb-2" :rules="passwordRules"/>
-            <button type="button" class='v-btn' dark color="success" @click="validate" :disabled="!valid" :class="{disabledButton: !valid, 'theme--dark': valid, success: valid}"><div class="v-btn__content">Login</div></button>            
+            <button type="button" class='v-btn' dark color="success" @click="validate" :disabled="!valid" :class="{disabledButton: !valid, 'theme--dark': valid, success: valid}"><div class="v-btn__content">Register</div></button>            
           </v-form>
         </v-flex>
       </v-layout>
@@ -39,7 +39,7 @@ export default {
   methods: {
     async register () {
       try {
-        const response = await AuthenticationService.Engglogin({
+        const response = await AuthenticationService.Enggregister({
           username: this.username,
           password: this.password
         })

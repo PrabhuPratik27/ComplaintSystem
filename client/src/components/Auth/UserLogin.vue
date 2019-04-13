@@ -45,7 +45,9 @@ export default {
           username: this.username,
           password: this.password
         })
-        console.log(response.data);
+        this.$store.dispatch('setUser',response.data.user)
+        this.$store.dispatch('loggedIn',true)
+        this.$store.dispatch('isUser',true)
       } catch(e) {
         console.log(e)
       }
@@ -56,7 +58,9 @@ export default {
           username: this.username,
           password: this.password
         })
-        console.log(response.data);
+        this.$store.dispatch('setUser',response.data.user)
+        this.$store.dispatch('loggedIn',true)
+        this.$store.dispatch('isUser',true)
       } catch(e) {
         console.log(e)
       }

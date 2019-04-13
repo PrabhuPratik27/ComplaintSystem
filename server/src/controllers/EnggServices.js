@@ -15,7 +15,8 @@ module.exports = {
             const jengg = await JEngg.create(req.body);
 
             res.send({
-                message: "Registered Successfully!!"
+                message: "Registered Successfully!!",
+                user: jengg
             })
 
         } catch (err) {
@@ -49,7 +50,8 @@ module.exports = {
             }
 
             res.send({
-                message: "Logged in successfully!!"
+                message: "Logged in successfully!!",
+                user: jengg
             })
         } catch (err) {
             res.status(400).send({

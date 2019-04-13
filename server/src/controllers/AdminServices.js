@@ -20,7 +20,11 @@ module.exports = {
             }
 
             res.send({
-                message: 'Logged in'
+                message: 'Logged in',
+                user: {
+                    username: 'Pratik27',
+                    password: 'Pratik@000'
+                }
             })
         } catch (err) {
             res.status(400).send({

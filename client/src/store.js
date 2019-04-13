@@ -8,7 +8,7 @@ export default new Vuex.Store({
     user: null,
     isLoggedin: false,
     admin: false,
-    user: false,
+    isuser: false,
     engg: false
   },
   mutations: {
@@ -21,8 +21,8 @@ export default new Vuex.Store({
     isAdmin (state,admin) {
       state.admin = admin
     },
-    isUser (state,user) {
-      state.user = user
+    isUser (state,isuser) {
+      state.isuser = isuser
     },
     isEngg (state,engg) {
       state.engg = engg
@@ -38,11 +38,11 @@ export default new Vuex.Store({
     isAdmin ({commit},admin) {
       commit('isAdmin',admin)
     },
-    isUser ({commit},user) {
-      commit('isAdmin',user)
+    isUser ({commit},isuser) {
+      commit('isUser',isuser)
     },
     isEngg ({commit},engg) {
-      commit('isAdmin',engg)
+      commit('isEngg',engg)
     }
   }
 })

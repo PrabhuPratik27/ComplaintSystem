@@ -3,9 +3,11 @@
     <panel title="Complaints" >
       <v-data-table :headers="headers" :items="complaints" class="elevation-1 mt-2 mb-2">
         <template v-slot:items="props">
-          <td>{{ props.item.department }}</td>
+          <td>{{ props.item.name }}</td>
+          <td class="text-xs-right">{{ props.item.description }}</td>
           <td class="text-xs-right">{{ props.item.description }}</td>
           <td class="text-xs-right">{{ props.item.user }}</td>
+          <td><v-btn :to="{name: 'EditComplaint', params: {name: props.item.name}}"><v-icon>fas fa-edit</v-icon></v-btn></td>
         </template>
       </v-data-table>
     </panel>
@@ -36,6 +38,11 @@ export default {
     return {
       complaints: {},
       headers: [
+        {
+          text: 'Name',
+          algin: 'left',
+          value: 'name'
+        },
         {
           text: 'Department',
           align: 'left',

@@ -25,5 +25,23 @@ module.exports = {
                 message: 'The complaints could not be fetched'
             })
         }
+    },
+    async getComplaintByName (req,res) {
+        try {
+            const name = req.body.name
+
+            const complaint = await Complaint.findOne({
+                name: name
+            })
+            
+            res.send({
+                complaint : complaint
+            })
+
+        } catch (e) {
+            res.status(400).send({
+                message: 'Could not get complaint'
+            })
+        }
     }
 }

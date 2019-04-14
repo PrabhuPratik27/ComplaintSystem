@@ -18,5 +18,6 @@ module.exports = (app) => {
 
     //Api call to get add and get all complaints
     app.post('/complaints',ComplaintServices.addComplaint),
-    app.get('/complaints',ComplaintServices.getComplaints)
+    app.get('/complaints',ComplaintServices.getComplaints),
+    app.get('/complaints/byname',ComplaintServices.getComplaintByName)
 }

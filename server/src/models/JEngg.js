@@ -12,6 +12,6 @@ const user = new mongoose.Schema({
     }
 })
 
-const JEngg = mongoose.model('users',user)
+const JEngg = mongoose.model('jengg',user)
 
 module.exports = JEngg;

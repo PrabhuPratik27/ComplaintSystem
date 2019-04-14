@@ -57,5 +57,18 @@ module.exports = {
                 error: 'Could not update the engg'
             })
         }
+    },
+    async getEngg (req,res) {
+        try {
+            const complaint = await Complaint.find({
+                assignedengg: req.body.engg
+            })
+
+            res.send(complaint)
+        } catch (e) {
+            res.status(400).send({
+                'error': 'Could not fetch complaints'
+            })
+        }
     }
 }

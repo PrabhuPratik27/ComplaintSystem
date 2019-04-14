@@ -12,5 +12,8 @@ export default {
     },
     updateEngg (data) {
         return Api().post('complaints/engg',data)
+    },
+    getComplaintsbyEngg (data) {
+        return Api().post('complaints/engg/get',data)
     }
 }

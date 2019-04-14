@@ -46,7 +46,6 @@ export default {
           description: this.description,
           user: this.$store.state.user.username
         })
-        console.log(response.data)
       } catch(e) {
         console.log(e)
       }

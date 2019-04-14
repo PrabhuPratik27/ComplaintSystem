@@ -48,6 +48,9 @@ export default {
         this.$store.dispatch('setUser',response.data.user)
         this.$store.dispatch('loggedIn',true)
         this.$store.dispatch('isEngg',true)
+        this.$router.push({
+          name: 'CompList'
+        })
       } catch(e) {
         console.log(e)
       }
@@ -62,6 +65,9 @@ export default {
         this.$store.dispatch('setUser',response.data.user)
         this.$store.dispatch('loggedIn',true)
         this.$store.dispatch('isEngg',true)
+        this.$router.push({
+          name: 'CompList'
+        })
       } catch(e) {
         console.log(e)
       }

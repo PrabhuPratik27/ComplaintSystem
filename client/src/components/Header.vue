@@ -8,7 +8,7 @@
 
     <v-toolbar-items >
       <v-btn v-if="$store.state.isLoggedin" flat dark @click="logout">
-        Logout
+        <v-icon>fas fa-sign-out-alt</v-icon>Logout
       </v-btn>
     </v-toolbar-items>
 

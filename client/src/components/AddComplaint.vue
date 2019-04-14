@@ -18,6 +18,13 @@
 import Panel from './Auth/Panel'
 import ComplaintService from '@/services/ComplaintService'
 export default {
+  mounted () {
+    if (!this.$store.state.isuser) {
+      this.$router.push({
+        name: 'home'
+      })
+    }
+  },
   components: {
     Panel
   },
@@ -34,7 +41,7 @@ export default {
         const response = await ComplaintService.addcomplaint({
           department: this.department,
           description: this.description,
-        //   user: this.$store.state.user.username
+          user: this.$store.state.user.username
         })
         console.log(response.data)
       } catch(e) {

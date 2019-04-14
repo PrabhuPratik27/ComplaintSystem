@@ -60,9 +60,16 @@ module.exports = {
         }
     },
     async get (req,res) {
-        const engg = await JEngg.find({});
+        try{
+            const engg = await JEngg.find({});
 
-        res.send(engg);
+            res.send(engg);
+        } catch (e) {
+            res.status(400).send({
+                message: 'The enginners could not be fetched'
+            })
+        }
+        
 
     }
 }

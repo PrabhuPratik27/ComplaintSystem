@@ -17,6 +17,13 @@ module.exports = {
         }
     },
     async getComplaints (req,res) {
-        
+        try {
+            const complaint = await Complaint.find({})
+            res.send(complaint)
+        } catch (e) {
+            res.status(400).send({
+                message: 'The complaints could not be fetched'
+            })
+        }
     }
 }

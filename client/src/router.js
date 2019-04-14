@@ -8,6 +8,7 @@ import AddComplaint from './components/AddComplaint'
 import ComplaintList from './components/Complaints/Complaintslist'
 import CompList from './components/Complaints/CompList'
 import EditComplaint from './components/Complaints/EditComplaint'
+import UpdateComplaint from './components/Complaints/UpdateComplaint'
 
 Vue.use(Router)
 
@@ -52,6 +53,11 @@ export default new Router({
       path: '/complaint/list/engg',
       name: 'CompList',
       component: CompList
+    },
+    {
+      path: '/complaint/update/:name',
+      name: 'UpdateComplaint',
+      component: UpdateComplaint
     }
   ]
 })

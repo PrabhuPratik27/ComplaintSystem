@@ -23,19 +23,25 @@ import ComplaintService from '@/services/ComplaintService'
 import EnggService from '@/services/EnggService'
 export default {
   async mounted () {
-    const name = this.$route.params.name
-   
-    const response1 = await ComplaintService.getComplaintByName({
-      name: name,
-    })
+    if(!this.$store.state.admin) {
+      this.$router.push({
+        name: 'home'
+      })
+    } else { 
+      const name = this.$route.params.name
+    
+      const response1 = await ComplaintService.getComplaintByName({
+        name: name,
+      })
 
-    this.complaint= response1.data.complaint
+      this.complaint= response1.data.complaint
 
-    const response2 = await EnggService.getEngg()
+      const response2 = await EnggService.getEngg()
 
-    this.engg = response2.data
+      this.engg = response2.data
 
-    this.isdataReady = true
+      this.isdataReady = true
+    }
   },
   components: {
     Panel

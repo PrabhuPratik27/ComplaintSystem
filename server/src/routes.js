@@ -22,4 +22,6 @@ module.exports = (app) => {
     app.post('/complaints/byname',ComplaintServices.getComplaintByName)
     app.post('/complaints/engg',ComplaintServices.updateEngg)
     app.post('/complaints/engg/get',ComplaintServices.getEngg)
+    app.post('/complaints/status',ComplaintServices.updateStatus)
+    app.post('/complaints/solution',ComplaintServices.updateSolution)
 }

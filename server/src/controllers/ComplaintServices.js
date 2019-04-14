@@ -70,5 +70,37 @@ module.exports = {
                 'error': 'Could not fetch complaints'
             })
         }
+    },
+    async updateStatus (req,res) {
+        try {
+            console.log(req.body.status)
+            const complaint = await Complaint.updateOne({
+                name: req.body.name
+            },{
+                status: req.body.status
+            })
+
+            res.send(complaint)
+        } catch (e) {
+            res.status(400).send({
+                'error': 'Could not update complaints'
+            })
+        }
+    },
+    async updateSolution (req,res) {
+        try {
+            console.log(req.body.solution)
+            const complaint = await Complaint.updateOne({
+                name: req.body.name
+            },{
+                solution: req.body.solution
+            })
+
+            res.send(complaint)
+        } catch (e) {
+            res.status(400).send({
+                'error': 'Could not update complaints'
+            })
+        }
     }
 }

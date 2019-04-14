@@ -5,6 +5,7 @@ import UserLogin from './components/Auth/UserLogin'
 import EnggLogin from './components/Auth/JELogin'
 import AdminLogin from './components/Auth/AdminLogin'
 import AddComplaint from './components/AddComplaint'
+import ComplaintList from './components/Complaints/Complaintslist'
 
 Vue.use(Router)
 
@@ -34,6 +35,11 @@ export default new Router({
       path: '/complaint/add',
       name:'AddComplaint',
       component: AddComplaint
+    },
+    {
+      path: '/complaint/list',
+      name: 'Complaintlist',
+      component: ComplaintList
     }
   ]
 })

@@ -46,6 +46,9 @@ export default {
         this.$store.dispatch('setUser',response.data.user)
         this.$store.dispatch('loggedIn',true)
         this.$store.dispatch('isAdmin',true)
+        this.$router.push({
+          name: 'Complaintlist'
+        })
       } catch(e) {
         console.log(e)
       }

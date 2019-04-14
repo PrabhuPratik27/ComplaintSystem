@@ -7,7 +7,7 @@
           <td class="text-xs-right">{{ props.item.description }}</td>
           <td class="text-xs-right">{{ props.item.description }}</td>
           <td class="text-xs-right">{{ props.item.user }}</td>
-          <td><v-btn :to="{name: 'UpdateComplaint', params: {name: props.item.name}}"><v-icon>fas fa-edit</v-icon></v-btn></td>
+          <td><v-btn :to="{name: 'UpdateComplaint', params: {name: props.item.name}}" :disabled="props.item.solution"><v-icon>fas fa-edit</v-icon></v-btn></td>
         </template>
       </v-data-table>
     </panel>

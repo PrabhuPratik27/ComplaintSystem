@@ -29,7 +29,6 @@ module.exports = {
     async getComplaintByName (req,res) {
         try {
             const name = req.body.name
-
             const complaint = await Complaint.findOne({
                 name: name
             })

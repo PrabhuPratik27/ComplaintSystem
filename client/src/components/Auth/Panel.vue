@@ -1,7 +1,7 @@
 <template>
   <div>
     <v-layout class="mt-3" justify-center align-center>
-      <v-flex xs6>
+      <v-flex xs8>
         <div class="white elevation-2">
           <v-toolbar black dark>
             <v-toolbar-title>{{title}}</v-toolbar-title>

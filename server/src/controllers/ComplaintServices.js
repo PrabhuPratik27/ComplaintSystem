@@ -42,5 +42,20 @@ module.exports = {
                 message: 'Could not get complaint'
             })
         }
+    },
+    async updateEngg (req,res) {
+        try {
+            const complaint = await Complaint.updateOne({
+                name: req.body.name
+            },{
+                assignedengg: req.body.engg
+            })
+
+            res.send(complaint)
+        } catch (e) {
+            res.status.send({
+                error: 'Could not update the engg'
+            })
+        }
     }
 }

@@ -7,7 +7,7 @@
           <td class="text-xs-right">{{ props.item.description }}</td>
           <td class="text-xs-right">{{ props.item.description }}</td>
           <td class="text-xs-right">{{ props.item.user }}</td>
-          <td><v-btn :to="{name: 'EditComplaint', params: {name: props.item.name}}"><v-icon>fas fa-edit</v-icon></v-btn></td>
+          <td><v-btn :to="{name: 'EditComplaint', params: {name: props.item.name}}" :disabled="props.item.assignedengg"><v-icon>fas fa-edit</v-icon></v-btn></td>
         </template>
       </v-data-table>
     </panel>
@@ -25,7 +25,6 @@ export default {
       })
     } else {
       const response = await ComplaintService.getComplaints()
-      console.log(response.data)
       this.complaints = response.data
       console.log(this.complaints)
       this.dataReady = true
@@ -60,7 +59,7 @@ export default {
         },
         {
           text: 'Edit',
-          align: 'left'
+          align: 'left',
         }
       ],
       dataReady: false

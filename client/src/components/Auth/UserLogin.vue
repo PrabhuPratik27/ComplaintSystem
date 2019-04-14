@@ -48,6 +48,9 @@ export default {
         this.$store.dispatch('setUser',response.data.user)
         this.$store.dispatch('loggedIn',true)
         this.$store.dispatch('isUser',true)
+        this.$router.push({
+          name: 'AddComplaint'
+        })
       } catch(e) {
         console.log(e)
       }
@@ -61,6 +64,9 @@ export default {
         this.$store.dispatch('setUser',response.data.user)
         this.$store.dispatch('loggedIn',true)
         this.$store.dispatch('isUser',true)
+        this.$router.push({
+          name: 'AddComplaint'
+        })
       } catch(e) {
         console.log(e)
       }

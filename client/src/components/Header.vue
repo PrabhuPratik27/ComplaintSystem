@@ -17,7 +17,20 @@
 </template>
 
 <script>
-export default {} 
+export default {
+  methods: {
+    logout () {
+      this.$store.dispatch('setUser',null)
+      this.$store.dispatch('loggedIn',false)
+      this.$store.dispatch('isUser',false)
+      this.$store.dispatch('isEngg',false)
+      this.$store.dispatch('isAdmin',false)
+      this.$router.push({
+        name: 'home'
+      })
+    }
+  }
+} 
 </script>
 
 <style scoped>

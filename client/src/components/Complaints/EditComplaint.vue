@@ -10,10 +10,35 @@
       <v-data-table :headers="headers" :items="engg" class="elevation-1 mt-2 mb-2">
         <template v-slot:items="props">
           <td>{{ props.item.username }}</td>
-          <td><v-btn @click="assign(props.item.username)"><v-icon>fas fa-edit</v-icon></v-btn></td>
+          <td><v-btn @click="assign(props.item.username)" @click.stop="dialog = true"><v-icon>fas fa-edit</v-icon></v-btn></td>
         </template>
       </v-data-table>
     </panel>
+
+    <v-dialog
+      v-model="dialog"
+      max-width="290"
+    >
+      <v-card>
+        <v-card-title class="headline" style="color: green">Success</v-card-title>
+
+        <v-card-text>
+          The enginner has been assigned to the problem!!!
+        </v-card-text>
+
+        <v-card-actions>
+          <v-spacer></v-spacer>
+
+          <v-btn
+            color="green darken-1"
+            flat="flat"
+            @click="dialog = false"
+          >
+            Good
+          </v-btn>
+        </v-card-actions>
+      </v-card>
+    </v-dialog>
   </div>
 </template>
 
@@ -61,7 +86,8 @@ export default {
           text: 'Assign',
           align: 'left'
         }
-      ]
+      ],
+      dialog: false
     }
   },
   methods: {

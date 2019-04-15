@@ -7,11 +7,36 @@
             <v-text-field label="Name" v-model="name" class="mt-2 mb-2"/>
             <v-text-field label="Department" v-model="department" class="mt-2 mb-2"/>
             <v-text-field label="Description" v-model="description" class="mt-2 mb-2"/>
-            <button type="button" class='v-btn' dark color="success" @click="validate1" :disabled="!valid" :class="{disabledButton: !valid, 'theme--dark': valid, success: valid}"><div class="v-btn__content">Add Complaint</div></button>            
+            <button type="button" class='v-btn' dark color="success" @click="validate1" @click.stop="dialog = true" :disabled="!valid" :class="{disabledButton: !valid, 'theme--dark': valid, success: valid}"><div class="v-btn__content">Add Complaint</div></button>            
             </v-form>
         </v-flex>
       </v-layout>
     </panel>
+
+    <v-dialog
+      v-model="dialog"
+      max-width="290"
+    >
+      <v-card>
+        <v-card-title class="headline" style="color: green">Success</v-card-title>
+
+        <v-card-text>
+          Your problem has been registered with the system!!!
+        </v-card-text>
+
+        <v-card-actions>
+          <v-spacer></v-spacer>
+
+          <v-btn
+            color="green darken-1"
+            flat="flat"
+            @click="dialog = false"
+          >
+            Good
+          </v-btn>
+        </v-card-actions>
+      </v-card>
+    </v-dialog>
   </div>
 </template>
 
@@ -34,7 +59,8 @@ export default {
       name: '',
       department: '',
       description: '',
-      valid: false
+      valid: false,
+      dialog: false
     }
   },
   methods: {

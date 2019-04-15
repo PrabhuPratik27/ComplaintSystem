@@ -9,15 +9,65 @@
     <panel title="Update Status">
       <v-form ref="login" autocomplete="off">
         <v-text-field label="Status" v-model="status" class="mt-2 mb-2"/>
-        <v-btn @click="updateStatus">Upate</v-btn>
+        <v-btn @click="updateStatus" @click.stop="dialog1 = true">Update</v-btn>
       </v-form>
     </panel>
     <panel title="Update Solution">
       <v-form ref="login" autocomplete="off">
         <v-text-field label="Solution" v-model="solution" class="mt-2 mb-2"/>
-        <v-btn @click="updateSolution">Update</v-btn>
+        <v-btn @click="updateSolution" @click.stop="dialog2 = true">Update</v-btn>
       </v-form>
     </panel>
+
+    <v-dialog
+      v-model="dialog1"
+      max-width="290"
+    >
+      <v-card>
+        <v-card-title class="headline" style="color: green">Success</v-card-title>
+
+        <v-card-text>
+          The status of the problem has been updated!!!
+        </v-card-text>
+
+        <v-card-actions>
+          <v-spacer></v-spacer>
+
+          <v-btn
+            color="green darken-1"
+            flat="flat"
+            @click="dialog1 = false"
+          >
+            Good
+          </v-btn>
+        </v-card-actions>
+      </v-card>
+    </v-dialog>
+
+    <v-dialog
+      v-model="dialog2"
+      max-width="290"
+    >
+      <v-card>
+        <v-card-title class="headline" style="color: green">Success</v-card-title>
+
+        <v-card-text>
+          The solution to the problem has been updated!!!
+        </v-card-text>
+
+        <v-card-actions>
+          <v-spacer></v-spacer>
+
+          <v-btn
+            color="green darken-1"
+            flat="flat"
+            @click="dialog2 = false"
+          >
+            Good
+          </v-btn>
+        </v-card-actions>
+      </v-card>
+    </v-dialog>
   </div>
 </template>
 
@@ -46,7 +96,9 @@ export default {
     return {
       isdataReady: false,
       status: '',
-      solution: ''
+      solution: '',
+      dialog1: false,
+      dialog2: false
     }
   },
   components: {
